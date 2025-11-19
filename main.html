@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Владимир Маяковский | Авангард революции</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Иконки Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #1a1a2e;
+            --primary-red: #c44536;
+            --primary-gold: #d4af37;
+            --accent-blue: #3498db;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #16213e 100%);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Навигация */
+        .navbar {
+            background: rgba(26, 26, 46, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(26, 26, 46, 0.98) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-red));
+            transition: width 0.3s ease;
+        }
+
+        .navbar-brand:hover::after {
+            width: 100%;
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 600;
+            margin: 0 0.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        /* Герой секция */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, 
+                rgba(26, 26, 46, 0.9) 0%, 
+                rgba(22, 33, 62, 0.8) 100%),
+                url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c44536' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-red), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+
+        .hero-quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            border-left: 4px solid var(--primary-red);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        /* Секции */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-gold));
+            border-radius: 2px;
+        }
+
+        /* Карточки биографии */
+        .bio-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .bio-card:hover::before {
+            left: 100%;
+        }
+
+        .bio-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .year-badge {
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-gold));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary-red), var(--primary-gold));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: var(--primary-gold);
+            border: 4px solid var(--primary-dark);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 0 4px var(--primary-red);
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -17px;
+        }
+
+        .right::after {
+            left: -17px;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            border-color: var(--primary-gold);
+        }
+
+        /* Галерея */
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(0.3) brightness(0.8);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1) rotate(2deg);
+            filter: grayscale(0) brightness(1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(26, 26, 46, 0.9));
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Стихи */
+        .poem-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(196, 69, 54, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .poem-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 8rem;
+            color: rgba(212, 175, 55, 0.1);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .poem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-gold);
+        }
+
+        .poem-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            white-space: pre-line;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .poem-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Факты и достижения */
+        .fact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--primary-gold);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .fact-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        /* Иллюстрации */
+        .illustration-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .illustration-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .illustration-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* Анимации */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 5px var(--primary-gold), 0 0 10px var(--primary-gold);
+            }
+            50% {
+                text-shadow: 0 0 20px var(--primary-gold), 0 0 30px var(--primary-red);
+            }
+        }
+
+        .glowing-text {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Футер */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), #0f1123);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 3rem 0 1rem;
+        }
+
+        .author-signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--primary-gold);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+
+            .poem-card {
+                padding: 1.5rem;
+            }
+
+            .poem-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* Кастомный скроллбар */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-red), var(--primary-gold));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(var(--primary-gold), var(--primary-red));
+        }
+
+        /* Таблицы с информацией */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .info-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--primary-gold);
+            font-weight: 600;
+            width: 40%;
+        }
+
+        .info-value {
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">МАЯКОВСКИЙ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#biography">Биография</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#facts">Факты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#works">Произведения</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#illustrations">Иллюстрации</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#legacy">Наследие</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1 class="main-title animate__animated animate__fadeInUp">
+                            ВЛАДИМИР<br>МАЯКОВСКИЙ
+                        </h1>
+                        <p class="lead fs-3 animate__animated animate__fadeInUp animate__delay-1s">
+                            Поэт • Драматург • Художник<br>Голос русской революции
+                        </p>
+                        <div class="hero-quote">
+                            "Светить всегда, светить везде, до дней последних донца, 
+                            светить — и никаких гвоздей! Вот лозунг мой — и солнца!"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основная биография -->
+    <section id="biography" class="section">
+        <div class="container">
+            <h2 class="section-title text-center glowing-text">Основные сведения</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="bio-card">
+                        <h3 class="mb-4">Личная информация</h3>
+                        <table class="info-table">
+                            <tr>
+                                <td class="info-label">Годы жизни</td>
+                                <td class="info-value">7 июля 1893 — 14 апреля 1930 (36 лет)</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Место рождения</td>
+                                <td class="info-value">Село Багдади, Кутаисская губерния, Российская империя</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Гражданство</td>
+                                <td class="info-value">Российская империя → СССР</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Семейное положение</td>
+                                <td class="info-value">Не был официально женат. Фактический брак с Лилей Брик</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Образование</td>
+                                <td class="info-value">Московское училище живописи, ваяния и зодчества (не окончил)</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Служба</td>
+                                <td class="info-value">Чертежник в автомобильной школе (1915-1917)</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Место работы</td>
+                                <td class="info-value">РОСТА (Российское телеграфное агентство), журналы "ЛЕФ", "Новый ЛЕФ"</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Начало творчества</td>
+                                <td class="info-value">1912 год — первое стихотворение "Ночь"</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Признание</td>
+                                <td class="info-value">1915 год — после публикации поэмы "Облако в штанах"</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="bio-card h-100">
+                        <h3 class="mb-4">Родители</h3>
+                        <div class="fact-card">
+                            <h5>Владимир Константинович Маяковский</h5>
+                            <p class="mb-0">Лесничий, потомственный дворянин. Погиб в 1906 году от заражения крови.</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Александра Алексеевна Маяковская</h5>
+                            <p class="mb-0">Урожденная Павленко. Из казачьего рода. Пережила сына на 25 лет.</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Сестры</h5>
+                            <p class="mb-0">Людмила (1884-1972) и Ольга (1890-1949)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Достижения и факты -->
+    <section id="facts" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title text-center glowing-text">Достижения и интересные факты</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="bio-card">
+                        <h4 class="mb-4">🏆 Главные достижения</h4>
+                        <div class="fact-card">
+                            <h5>Создатель новой системы стихосложения</h5>
+                            <p>Изобрел "лесенку" — уникальный способ оформления стихов</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Лидер русского футуризма</h5>
+                            <p>Один из основателей группы "Гилея" и создатель манифеста "Пощечина общественному вкусу"</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Новатор в области плакатного искусства</h5>
+                            <p>Создал более 3000 плакатов для "Окон РОСТА"</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Реформатор театра</h5>
+                            <p>Автор новаторских пьес "Мистерия-Буфф", "Клоп", "Баня"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bio-card">
+                        <h4 class="mb-4">🔍 Интересные факты</h4>
+                        <div class="fact-card">
+                            <h5>Левша</h5>
+                            <p>Писал и рисовал левой рукой, что было редкостью для того времени</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Рост</h5>
+                            <p>Был очень высоким — 189 см, что выделяло его среди современников</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Кинематограф</h5>
+                            <p>Снимался в трех фильмах, был сценаристом и режиссером</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Путешественник</h5>
+                            <p>Посетил 12 стран, включая США, Францию, Германию, Мексику</p>
+                        </div>
+                        <div class="fact-card">
+                            <h5>Неологизмы</h5>
+                            <p>Создал более 200 новых слов, многие вошли в русский язык</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Главные произведения -->
+    <section id="works" class="section">
+        <div class="container">
+            <h2 class="section-title text-center glowing-text">Главные произведения</h2>
+            
+            <div class="poem-card">
+                <h3 class="poem-title">Облако в штанах (1915)</h3>
+                <div class="poem-text">
+Тетраптих, ставший манифестом футуризма. Четыре части поэмы: "Долой вашу любовь!", 
+"Долой ваше искусство!", "Долой ваш строй!", "Долой вашу религию!" — бросали вызов 
+всей системе традиционных ценностей.
+
+"Вашу мысль,
+мечтающую на размягченном мозгу,
+как выжиревший лакей на засаленной кушетке,
+буду дразнить об окровавленный сердца лоскут..."
+
+Поэма вызвала скандал и сделала Маяковского знаменитым.
+                </div>
+            </div>
+
+            <div class="poem-card">
+                <h3 class="poem-title">Флейта-позвоночник (1916)</h3>
+                <div class="poem-text">
+Лирическая поэма, посвященная Лиле Брик. Одно из самых пронзительных 
+любовных произведений в русской поэзии.
+
+"Хочу,
+чтоб к штыку
+приравняли перо.
+С хвостом годов
+я становлюсь подобием
+ископаемых хвостатых..."
+
+Поэма показывает другого Маяковского — не бунтаря, а влюбленного человека.
+                </div>
+            </div>
+
+            <div class="poem-card">
+                <h3 class="poem-title">Хорошо! (1927)</h3>
+                <div class="poem-text">
+Октябрьская поэма, написанная к 10-летию революции. Оптимистическое 
+произведение о строительстве нового общества.
+
+"Я
+земной шар
+чуть не весь обошел, —
+и жизнь
+хороша,
+и жить
+хорошо.
+А в нашей буче,
+боевой,
+кипучей, —
+и того лучше."
+
+Поэма стала официально признанным шедевром советской поэзии.
+                </div>
+            </div>
+
+            <div class="poem-card">
+                <h3 class="poem-title">Во весь голос (1930)</h3>
+                <div class="poem-text">
+Первое вступление в поэму о пятилетке, ставшее поэтическим завещанием 
+Маяковского. Написано за месяц до смерти.
+
+"Уважаемые
+товарищи потомки!
+Роясь
+в сегодняшнем
+окаменевшем говне,
+наших дней изучая потемки,
+вы,
+возможно,
+спросите и обо мне."
+
+Произведение подводит итог творческого пути поэта.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Иллюстрации к произведениям -->
+    <section id="illustrations" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title text-center glowing-text">Иллюстрации к произведениям</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="illustration-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mayakovsky_Cloud_in_Trousers_1915.jpg/800px-Mayakovsky_Cloud_in_Trousers_1915.jpg" 
+                             alt="Обложка Облако в штанах" class="illustration-img">
+                        <h5>Облако в штанах</h5>
+                        <p class="text-muted">Первое издание 1915 года с авторской обложкой</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="illustration-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mayakovsky_ROSTA_Window_1920.jpg/800px-Mayakovsky_ROSTA_Window_1920.jpg" 
+                             alt="Окно РОСТА" class="illustration-img">
+                        <h5>Окна РОСТА</h5>
+                        <p class="text-muted">Агитационные плакаты 1919-1921 годов</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="illustration-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Mayakovsky_Pro_eto_1923.jpg/800px-Mayakovsky_Pro_eto_1923.jpg" 
+                             alt="Про это" class="illustration-img">
+                        <h5>Про это</h5>
+                        <p class="text-muted">Поэма 1923 года с фотомонтажами Родченко</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="illustration-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Mayakovsky_Klop_poster_1929.jpg/800px-Mayakovsky_Klop_poster_1929.jpg" 
+                             alt="Клоп" class="illustration-img">
+                        <h5>Клоп</h5>
+                        <p class="text-muted">Афиша пьесы 1929 года</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="illustration-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mayakovsky_Banya_1930.jpg/800px-Mayakovsky_Banya_1930.jpg" 
+                             alt="Баня" class="illustration-img">
+                        <h5>Баня</h5>
+                        <p class="text-muted">Сатирическая пьеса 1930 года</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="illustration-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Mayakovsky_150000000_1921.jpg/800px-Mayakovsky_150000000_1921.jpg" 
+                             alt="150000000" class="illustration-img">
+                        <h5>150 000 000</h5>
+                        <p class="text-muted">Поэма 1921 года о русской революции</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Наследие -->
+    <section id="legacy" class="section">
+        <div class="container">
+            <h2 class="section-title text-center glowing-text">Наследие</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p class="lead">Творчество Маяковского оказало огромное влияние на развитие не только русской, но и мировой поэзии XX века.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <div class="bio-card h-100">
+                                <h4><i class="bi bi-pen-fill me-3"></i>Новаторство</h4>
+                                <p>Создание "лесенки" - новой системы стихосложения, изобретение неологизмов, разрушение традиционных форм.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bio-card h-100">
+                                <h4><i class="bi bi-eye-fill me-3"></i>Влияние</h4>
+                                <p>Маяковский стал образцом для поэтов следующих поколений - от Вознесенского до современных авторов.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="bio-card">
+                        <h4>Память</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-danger"></i> Станция метро "Маяковская"</li>
+                            <li class="mb-2"><i class="bi bi-building me-2 text-warning"></i> Музей-квартира в Москве</li>
+                            <li class="mb-2"><i class="bi bi-book me-2 text-info"></i> Множество улиц и площадей</li>
+                            <li class="mb-2"><i class="bi bi-award me-2 text-success"></i> Премия имени Маяковского</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="glowing-text">ВЛАДИМИР МАЯКОВСКИЙ</h4>
+                    <p>1893 - 1930</p>
+                    <p class="text-muted">"Я хочу, чтоб к штыку приравняли перо."</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <p class="text-muted">&copy; 2025 Наследие Маяковского. Все права защищены.</p>
+                    <div class="author-signature">
+                        Автор проекта: Артём Коннов
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Кастомный JS -->
+    <script>
+        // Параллакс и анимации при скролле
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const scrolled = window.pageYOffset > 100;
+            
+            if (scrolled) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Анимация timeline
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < window.innerHeight * 0.8) {
+                    item.classList.add('visible');
+                }
+            });
+
+            // Анимация карточек
+            const bioCards = document.querySelectorAll('.bio-card, .fact-card, .illustration-card');
+            bioCards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < window.innerHeight * 0.8) {
+                    card.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s forwards`;
+                }
+            });
+        });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Случайные анимации для элементов
+        function addRandomAnimations() {
+            const elements = document.querySelectorAll('.bio-card, .poem-card, .fact-card');
+            elements.forEach(el => {
+                const randomDelay = Math.random() * 0.5;
+                el.style.animationDelay = `${randomDelay}s`;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', addRandomAnimations);
+    </script>
+</body>
+</html>
